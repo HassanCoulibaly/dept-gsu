@@ -110,7 +110,7 @@ if (isset($_POST['update_product'])) {
 <body>
 
 <?php foreach ($message as $msg): ?>
-    <p style="color: red; padding-left: 10px;"><?= htmlspecialchars($msg) ?></p>
+    <p style="color: red; padding-left: 10px;\"><?= htmlspecialchars($msg) ?></p>
 <?php endforeach; ?>
 
 <div class="container">
