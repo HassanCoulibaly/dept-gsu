@@ -159,7 +159,7 @@ if(isset($message)){
 
         <?php
         // Retrieve project data based on the ID
-        $select = mysqli_query($conn, "SELECT * FROM research WHERE id = '$id'");
+        $select = mysqli_query($conn, "SELECT * FROM projects WHERE id = '$id'");
         while($row = mysqli_fetch_assoc($select)){
             ?>
 
@@ -179,15 +179,15 @@ if(isset($message)){
 
                 <!-- Display requirement, keyword, and paid columns -->
                 <span style="padding-left:10px; font-size: 12px; color: black; font-weight: bold;">Requirements</span> <br>
-                <input type="text" class="box" name="requirement" value="<?php echo $row['requirement']; ?>" placeholder="Enter the requirement">
+                <input type="text" class="box" name="requirement" value="<?php echo $row['requirements']; ?>" placeholder="Enter the requirement">
 
                 <span style="padding-left:10px; font-size: 12px; color: black; font-weight: bold;">Keywords</span> <br>
-                <input type="text" class="box" name="keyword" value="<?php echo $row['keyword']; ?>" placeholder="Enter the keyword">
+                <input type="text" class="box" name="keyword" value="<?php echo $row['keywords']; ?>" placeholder="Enter the keyword">
 
                 <span style="padding-left:10px; font-size: 12px; color: black; font-weight: bold;">Pay</span> <br>
                 <select class="box" name="paid">
-                    <option value="yes" <?php if($row['paid'] == 'yes') echo 'selected'; ?>>Yes</option>
-                    <option value="no" <?php if($row['paid'] == 'no') echo 'selected'; ?>>No</option>
+                    <option value="yes" <?php if($row['is_paid'] == 'yes') echo 'selected'; ?>>Yes</option>
+                    <option value="no" <?php if($row['is_paid'] == 'no') echo 'selected'; ?>>No</option>
                 </select>
 
                 <!-- Dropdown list for category -->

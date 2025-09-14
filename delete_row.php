@@ -5,10 +5,10 @@ if(isset($_POST['rowId']) && !empty($_POST['rowId'])) {
     $rowId = $_POST['rowId'];
 
     // Database connection
-    $servername = "localhost";
+    $servername = "127.0.0.1:3390";
     $username = "root";
-    $password = "Frankfurt018";
-    $dbname = "csresearch";
+    $password = "";
+    $dbname = "cs_research_new";
 
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);

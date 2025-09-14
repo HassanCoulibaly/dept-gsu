@@ -17,9 +17,9 @@ if(isset($_GET['delete'])){
 // Handle search query
 if(isset($_GET['search'])){
     $search_query = $_GET['search'];
-    $select = mysqli_query($conn, "SELECT * FROM research WHERE title LIKE '%$search_query%'");
+    $select = mysqli_query($conn, "SELECT * FROM projects WHERE title LIKE '%$search_query%'");
 } else {
-    $select = mysqli_query($conn, "SELECT * FROM research");
+    $select = mysqli_query($conn, "SELECT * FROM projects");
 }
 ?>
 
@@ -30,9 +30,33 @@ if(isset($_GET['search'])){
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Projects Dashboard</title>
-   <link rel="stylesheet" href="project_dashboard.css">
+   <link rel="stylesheet" href="project_dashboard.css"> 
 </head>
 <body>
+    <header>
+        <div class="navbar">
+        <div class="logo"><a href="index.php"><img style="height: 50px; width: 50px" src="images/headerlogo.png" alt=""></a></div>
+            <ul class="links">
+                <li><a href="index.php">Home</a></li>
+                <li><a href="success.php">Success Stories</a></li>
+                <li><a href="projects.php">Projects</a></li>
+                <li><a href="https://forms.gle/oLbgRWchwJJgsayS8">Survey</a></li>
+                <li><a href="admin.php">Admin</a></li>
+            </ul>    
+            <div class="toggle_btn">
+                <img style="width: 50px; height: 40px" src="images/icon1.png">
+                <!--<i class="fa-solid fa-bars"></i>-->
+            </div>    
+        </div>        
+
+        <div class="dropdown_menu">
+          <li><a href="index.php">Home</a></li>
+          <li><a href="success.php">Success Stories</a></li>
+          <li><a href="projects.php">Projects</a></li>
+          <li><a href="https://forms.gle/oLbgRWchwJJgsayS8">Survey</a></li>
+          <li><a href="admin.php">Admin</a></li>
+        </div>
+    </header>
 
 <div class="container">
    <h2>Projects Dashboard</h2>
@@ -66,14 +90,14 @@ if(isset($_GET['search'])){
 </thead>
 <?php while($row = mysqli_fetch_assoc($select)){ ?>
 <tr>
-    <td> <img src="./success_image/<?php echo $row['image']; ?>" height="100" alt=""> </td>
+    <td> <img src="./success_image/<?php echo $row['image_url']; ?>" height="100" alt=""> </td>
     <td><?php echo $row['title']; ?></td>
     <td><?php echo $row['short_description']; ?></td>
     <td><?php echo $row['long_description']; ?></td>
-    <td><?php echo $row['category']; ?></td> 
-    <td><?php echo $row['requirement']; ?></td>
-    <td><?php echo $row['keyword']; ?></td>
-    <td><?php echo $row['paid']; ?></td>
+    <td><?php echo $row['category_id']; ?></td> 
+    <td><?php echo $row['requirements']; ?></td>
+    <td><?php echo $row['keywords']; ?></td>
+    <td><?php echo $row['is_paid']; ?></td>
     <td><a style="color: #fff;" href="edit_project.php?edit=<?php echo $row['id']; ?>" class="btn"><i class="fas fa-edit"></i> Edit </a></td>
     <td>
         <form id="delete_form_<?php echo $row['id']; ?>" method="POST" action="project_dashboard.php?delete=<?php echo $row['id']; ?>">

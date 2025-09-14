@@ -2,12 +2,12 @@
 session_start(); // Start the session
 
 // Check if user is logged in, if not, redirect to admin.php
-if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
+if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
     header("Location: admin.php");
     exit; // Terminate script after redirect
 }
 ?>
-
+ 
 
 <!DOCTYPE html>
 <html lang="en">
@@ -107,10 +107,10 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     <br>
     <?php
     // Database connection
-    $servername = "localhost";
+    $servername = "127.0.0.1:3390";
     $username = "root";
-    $password = "Frankfurt018";
-    $dbname = "csresearch";
+    $password = "";
+    $dbname = "cs_research_new";
 
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
@@ -159,10 +159,10 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 
         <?php
         // Database connection
-        $servername = "localhost";
+        $servername = "127.0.0.1:3390";
         $username = "root";
-        $password = "Frankfurt018";
-        $dbname = "csresearch";
+        $password = "";
+        $dbname = "cs_research_new";
 
         // Create connection
         $conn = new mysqli($servername, $username, $password, $dbname);

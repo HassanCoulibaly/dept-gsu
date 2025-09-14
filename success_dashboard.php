@@ -56,9 +56,9 @@ if(isset($_GET['search'])){
          </thead>
          <?php while($row = mysqli_fetch_assoc($select)){ ?>
          <tr>
-            <td> <img src="success_image/<?php echo $row['image']; ?>" height="100" alt=""> </td>
+            <td> <img src="success_image/<?php echo $row['image_url']; ?>" height="100" alt=""> </td>
             <td><?php echo $row['title']; ?></td>
-            <td><?php echo $row['description']; ?></td>
+            <td><?php echo $row['story_text']; ?></td>
             <td><a style="color: #fff;" href="success_update.php?edit=<?php echo $row['id']; ?>" class="btn"><i class="fas fa-edit"></i> Edit </a></td>
             <td><button onclick="confirmDelete(<?php echo $row['id']; ?>)" class="btn"> <i class="fas fa-trash"></i> Delete </button></td>
          </tr>

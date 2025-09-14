@@ -3,7 +3,7 @@
 $servername = "127.0.0.1:3390";
 $username = "root";
 $password = "";
-$dbname = "csresearch";
+$dbname = "cs_research_new";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -82,10 +82,10 @@ error_reporting(E_ALL);
         if ($result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {
                 echo '<div class="card">';
-                echo '<img src="success_image/' . $row['image'] . '" height="100" alt="">';
+                echo '<img src="success_image/' . $row['image_url'] . '" height="100" alt="">';
                 echo '<div class="card-content">';
                 echo '<h3>'.$row['title'].'</h3>';
-                echo '<p>'.$row['description'].'</p>';
+                echo '<p>'.$row['story_text'].'</p>';
                 echo '</div>';
                 echo '</div>';
             }
