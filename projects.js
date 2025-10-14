@@ -1,5 +1,3 @@
-
-
 const serviceItems = document.querySelector(".service-items");
 const popup = document.querySelector(".popup-box")
 const popupCloseBtn = popup.querySelector(".popup-close-btn");
