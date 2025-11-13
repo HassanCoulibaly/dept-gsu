@@ -1,6 +1,7 @@
 <?php
 // Include database configuration
-include 'config.php';
+require_once 'config.php';
+$conn = getDBConnection();
 
 // Delete project if delete parameter is set
 if(isset($_GET['delete'])){

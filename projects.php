@@ -1,6 +1,7 @@
 <?php
+include 'config.php';
 session_start();
-include 'config.php'; // Include config.php to access $categories array
+ // Include config.php to access $categories array
 
 // Connect to MySQL
 $servername = "127.0.0.1:3390";

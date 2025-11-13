@@ -1,6 +1,6 @@
 <?php
 @include 'config.php';
-
+$conn = getDBConnection();
 // Delete product if delete parameter is set
 if(isset($_GET['delete'])){
    $id = $_GET['delete'];
